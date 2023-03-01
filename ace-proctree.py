@@ -7,9 +7,11 @@ from rich import print
 from anytree import Node, PreOrderIter, RenderTree
 
 description='''
-Create a cool process tree like https://twitter.com/ACEResponder.
+Create a simple process tree like https://twitter.com/ACEResponder.
 
-Takes a csv with the following headers: process_name, pid, ppid:
+Export a CSV from your SIEM with the following headers: process_name, pid, ppid.
+It will use the first row as the root process and move down the tree by searching for ppids.
+No need to groom the output - it will simply ignore unrelated processes.
 
 | process_name |      pid     |     ppid      |
 |--------------|--------------|---------------|
@@ -26,7 +28,6 @@ first
 │
 └── 4th
 
-Created by ACEResponder.com
 '''
 
 def cmdline_args():
